@@ -17,5 +17,7 @@ jobs:
     - name: Running all tests
       run:  |
             cd tests
-            ls
+            tests=$(find . -name "test.*.c")
+            echo List of files in the dir is:
+            echo $tests
 
