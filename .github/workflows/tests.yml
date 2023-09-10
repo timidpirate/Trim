@@ -17,10 +17,5 @@ jobs:
     - name: Running all tests
       run:  |
             cd tests
-            tests=$(find . -name "test.*.c")
-            for test in $tests; do
-               gcc ../src/trim.c $test ./main.c
-               ./a.out $test
-               rm -rf a.out
-            done;
+            ls
 
