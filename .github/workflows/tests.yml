@@ -21,7 +21,7 @@ jobs:
             echo List of files in the dir is:
             for test in $tests; do
                 echo Compiling $test...
-                gcc ../src/trim.c $test ./main.c
+                gcc -o $test.exe ../src/trim.c $test ./main.c
                 echo Compiled $test.
             done;
 
