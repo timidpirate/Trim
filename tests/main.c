@@ -8,6 +8,13 @@ extern void fail_message();
 
 int main(int argc, char **argv)
 {
+	const size_t width = 40;
+	
+	// Write test name and dotted line.
+	size_t len = strlen(argv[1]);
+	printf("Run %s ", argv[1]);
+	for(int i = 0 ; i < width - sizeof("Run") - len - sizeof("pass") - 1 ; i++) putchar('.');
+
 	// Run test.
 	if(test())
 	{
