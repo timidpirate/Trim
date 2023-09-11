@@ -20,9 +20,12 @@ jobs:
             tests=$(find . -name "test.*.c")
             echo List of files in the dir is:
             for test in $tests; do
-                gcc ../src/trim.c $test ./main.c
                 echo Compiling $test...
+                gcc ../src/trim.c $test ./main.c
+                ls a.out
+                echo compiled.
+                echo Running $test...
                 ./a.out $test
-                echo Compiled $test.
+                echo Finished $test.
             done;
 
