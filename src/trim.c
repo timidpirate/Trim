@@ -3,24 +3,24 @@
 #include <string.h>
 
 static char * t = NULL;				// trim buffer.
-static long tlen = 0;				// trim buffer size.
+static size_t tlen = 0;				// trim buffer size.
 
 // Trims the string a of length l and returns the len of trimmed string.
 size_t triml(char * a, size_t l)
 {
 	if(l == 0) return 0;
 	
-	if(l > tlen)					// If string is longer then the current buffer.
+	if(l > tlen)				// If string is longer then the current buffer.
 	{
 		if(t == NULL)
-			t = malloc(l*4);		// Reserve extra size in order to call
+			t = malloc(l*4);	// Reserve extra size in order to call
 		else
 			t = realloc(t, l*4);	// memory allocation less often.
 			
 		tlen = l;
 	}
 	
-	memcpy(t, a, l);				// Copy string to internal buffer.
+	memcpy(t, a, l);			// Copy string to internal buffer.
 	
 	// Count spaces in front of non-spaced string.
 	size_t b = 0;
@@ -34,7 +34,7 @@ size_t triml(char * a, size_t l)
 	
 	if(l) memcpy(a, t + b, l);	//	Move trimmed string to the beginning of argumenr string.
 
-	a[l] = 0;					// Terminate it with \0.
+	a[l] = 0;			// Terminate it with \0.
 
 	return l;
 }
