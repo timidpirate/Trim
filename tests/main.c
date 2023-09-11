@@ -17,7 +17,7 @@ int main(int argc, char **argv)
 	// Write test name and dotted line.
 	size_t len = strlen(argv[1]);
 	printf("Run %s ", argv[1]);
-	for(size_t i = 0 ; i < width - sizeof("Run") - len - sizeof("pass") - 1 ; i++) putchar('.');
+//	for(size_t i = 0 ; i < width - sizeof("Run") - len - sizeof("pass") - 1 ; i++) putchar('.');
 
 	// Run test.
 	if(test())
