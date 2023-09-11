@@ -2,4 +2,4 @@
 
 Removes heading and trailing whitespaces in the string.
 
-Uses single internal buffer. Use for one string in a time.
+Uses single internal buffer. Use for one string at a time.
