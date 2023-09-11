@@ -8,12 +8,16 @@ extern void fail_message();
 
 int main(int argc, char **argv)
 {
-	const size_t width = 40;
+	// Get terminal width.
+	struct winsize w;
+    	ioctl(STDOUT_FILENO, TIOCGWINSZ, &w);
+	const size_t width = w.ws_col;
+	printf("Terminal width is %ld ", width);
 	
 	// Write test name and dotted line.
 	size_t len = strlen(argv[1]);
 	printf("Run %s ", argv[1]);
-	for(int i = 0 ; i < width - sizeof("Run") - len - sizeof("pass") - 1 ; i++) putchar('.');
+	for(size_t i = 0 ; i < width - sizeof("Run") - len - sizeof("pass") - 1 ; i++) putchar('.');
 
 	// Run test.
 	if(test())
